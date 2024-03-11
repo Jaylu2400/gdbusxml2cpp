@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/Srv">
+  <interface name="aa.bb.test">
+    <method name="test_method">
+       <arg name="number" type="i"/>
+       <arg name="contents" type="s"/>
+       <arg type="av" direction="out" name= "ret1"/>
+    </method>
+    <method name="set_value">
+       <arg name="number" type="i" direction="in"/>
+       <arg type="i" direction="out" name= "ret"/>
+    </method>
+    <signal name="time_changed">
+       <arg name="time" type="s"/>
+    </signal>
+  </interface>
+  <interface name="aa.bb.device">
+    <method name="test_method_ee">
+       <arg name="number" type="i" direction="in"/>
+       <arg name="contents" type="s" direction="in"/>
+       <arg type="i" direction="out" name= "ret1"/>
+    </method>
+    <method name="set_vol">
+       <arg name="number" type="i" direction="in"/>
+       <arg type="s" direction="out" name= "ret1"/>
+    </method>
+    <signal name="battery_changed">
+       <arg name="capcity" type="i" />
+    </signal>
+  </interface>
+</node>

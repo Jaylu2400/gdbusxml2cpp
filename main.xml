@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<node xmlns:xi="/opt/workspace/GIO_Server_x86/">
+  <xi:include href="server.xml"/>
+  <xi:include href="m300qtsrv.xml"/>
+</node>
+

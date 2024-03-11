@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<node name="/com/ht401/m300/qtsrv">
+    <interface name="com.m300qtsrv.sys.gpio">
+        <method name="set">
+            <arg name="name" type="s" direction="in"/>
+            <arg name="dir" type="s" direction="in"/>
+            <arg name="level" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+    </interface>
+    <interface name="com.m300qtsrv.sys.battery">
+        <method name="update">
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="get">
+            <arg name="result" type="av" direction="out"/>
+        </method>
+        <signal name="state">
+          <arg name="charged" type="b"/>
+          <arg name="votage" type="i"/>
+          <arg name="current" type="i"/>
+          <arg name="capcity" type="i"/>
+        </signal>
+    </interface>
+    <interface name="com.m300qtsrv.sys.net">
+        <method name="update">
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="get">
+            <arg name="result" type="av" direction="out"/>
+        </method>
+        <signal name="state">
+            <arg name="phylink" type="b" direction="out"/>
+            <arg name="serverlink" type="b" direction="out"/>
+        </signal>
+    </interface>
+    <interface name="com.m300qtsrv.sys.ntp">
+        <method name="set_server">
+            <arg name="ip" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="set_port">
+            <arg name="port" type="i" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="get_server">
+            <arg name="result" type="av" direction="out"/>
+        </method>
+        <method name="get_port">
+            <arg name="result" type="av" direction="out"/>
+        </method>
+        <method name="sync">
+            <arg name="timeoutms" type="i" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+    </interface>
+    <interface name="com.m300qtsrv.sys.screen">
+        <method name="setbacklight">
+            <arg name="onoff" type="b" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="setbrightness">
+            <arg name="value" type="i" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+    </interface>
+    <interface name="com.m300qtsrv.media.audio">
+        <method name="start">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="stop">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+    </interface>
+    <interface name="com.m300qtsrv.media.video">
+        <method name="start">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="stop">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+    </interface>
+    <interface name="com.m300qtsrv.media.streamforward">
+        <method name="start">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="mediaId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="stop">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="mediaId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+        <method name="reset">
+            <arg name="streamId" type="s" direction="in"/>
+            <arg name="mediaId" type="s" direction="in"/>
+            <arg name="result" type="i" direction="out"/>
+        </method>
+    </interface>
+    <interface name="com.m300qtsrv.media.speech">
+
+    <method name="getSpeechCfg">
+        <arg name="result" type="av" direction="out"/>
+    </method>
+    <method name="setSpeechCfg">
+        <arg name="ip" type="s" direction="in"/>
+        <arg name="netmask" type="s" direction="in"/>
+        <arg name="groupcastAddress" type="s" direction="in"/>
+        <arg name="terminalId" type="i" direction="in"/>
+        <arg name="result" type="i" direction="out"/>
+    </method>
+
+    <method name="getLineOnOff">
+        <arg name="result" type="av" direction="out"/>
+    </method>
+    <signal name="lineOnOff">
+      <arg name="chezhang" type="b"/>
+      <arg name="duanji" type="b"/>
+    </signal>
+
+    <method name="getMode">
+        <arg name="result" type="av" direction="out"/>
+    </method>
+    <method name="setMode">
+        <arg name="value" type="i" direction="in"/>
+        <arg name="result" type="i" direction="out"/>
+    </method>
+
+    <method name="getLineNum">
+        <arg name="result" type="av" direction="out"/>
+    </method>
+    <method name="setLineNum">
+        <arg name="value" type="i" direction="in"/>
+        <arg name="result" type="i" direction="out"/>
+    </method>
+
+    <method name="getLineState">
+        <arg name="result" type="av" direction="out"/>
+    </method>
+    <signal name="lineState">
+        <arg name="value" type="i"/>
+    </signal>
+
+    <method name="getVolume">
+        <arg name="result" type="av" direction="out"/>
+    </method>
+    <method name="setVolume">
+        <arg name="vol" type="i" direction="in"/>
+        <arg name="result" type="i" direction="out"/>
+    </method>
+    <signal name="volumeChanged">
+      <arg name="vol" type="i"/>
+    </signal>
+
+    <method name="setPttOn">
+    <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="setPttOff">
+    <arg name="result" type="i" direction="out"/>
+    </method>
+
+</interface>
+
+</node>

@@ -1,0 +1,7 @@
+*.o
+*.pro.user.*
+*.pro.user
+Makefile
+Makefile*
+gdbusxml2cpp
+.qmake.stash
